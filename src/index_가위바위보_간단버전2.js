@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import App from './App';
+// import App from './App';
 
 // 가위바위보 이기는 공식
 const WINS = {
@@ -26,7 +26,7 @@ const other = 'scissor';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // const root = App.createRoot(document.getElementById('root'));
-ReactDOM.render(<App />, document.getElementByID('root'));
+// ReactDOM.render(<App />, document.getElementByID('root'));
 
 root.render(
   <div>
