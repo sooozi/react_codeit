@@ -13,7 +13,7 @@ import { compareHand, generateRandomHand } from './utils'; // 게임 로직을 �
 const INITIAL_VALUE = 'rock';
 
 
-// 게임 결과를 결정하는 함수를 정의합니다 (승, 패, 무승부)
+// 게임 결과를 결정하는 함수를 정의합니다 (승, 패, 무승부) - 가위 바위 보
 function getResult(me, other) {
     const comparison = compareHand(me, other);
     if (comparison > 0) return '승리'; // 승리
@@ -32,21 +32,35 @@ function App() {
     // 사용자의 손 모양과 컴퓨터의 손 모양을 관리하기 위한 상태 변수를 정의합니다.
     const [hand, setHand] = useState(INITIAL_VALUE);
     const [otherHand, setOtherHand] = useState(INITIAL_VALUE);
+    const [gameHistory02, setGameHistory02] = useState([]);  //빈 배열을 초깃값으로 갖는 gameHistory라는 State를 제작합니다.
 
     // 손 모양 선택 버튼 클릭 이벤트를 처리하는 함수를 정의합니다.
     const handleButtonClick = (nextHand) => {  
         // 컴퓨터를 위한 무작위 손 모양을 생성합니다.
         const nextOtherHand = generateRandomHand();
+        //승부 결과를 저장합니다.
+        const nextHistoryItem = getResult(nextHand, nextOtherHand);
+
         // 선택한 손 모양으로 상태 변수를 업데이트합니다.
-        setHand(nextHand);
-        setOtherHand(nextOtherHand);
+        // setHand(nextHand);
+        // setOtherHand(nextOtherHand);
+        //setter함수로 새 값이 추가된 gameHistory State를 전달해줍니다.
+        setGameHistory02([...gameHistory02, nextHistoryItem]);
     };
 
     //가위 바위 보 초기화
     const handleClearClick02 = () => {
         setHand(INITIAL_VALUE);
         setOtherHand(INITIAL_VALUE);
+        // gameHistory를 비워줍니다.
+        setGameHistory02([]);
     };
+
+
+
+
+
+
 
     const [num, setNum] = useState(1);
     const [sum, setSum] = useState(0);
@@ -99,6 +113,7 @@ function App() {
                     VS
                     <HandIcon value={otherHand} />
                 </div>
+                <p>승부 기록: {gameHistory02.join(', ')}</p>
                 <div>
                     <HandButton value="rock" onClick={handleButtonClick} />  
                     <HandButton value="scissor" onClick={handleButtonClick} />
