@@ -50,7 +50,6 @@ function App() {
 
     const [num, setNum] = useState(1);
     const [sum, setSum] = useState(0);
-    const [gameHistory, setGameHistory] = useState([]);  //빈 배열을 초깃값으로 갖는 gameHistory라는 State를 제작합니다.
 
     // 주사위 던지기 버튼 클릭 이벤트를 처리하는 함수를 정의합니다.
     const handleRollClick = () => {
@@ -59,15 +58,12 @@ function App() {
         setNum(nextNum);
         //던지기 버튼 클릭 시 새로운 주사위 숫잣값이 setState에 더해집니다.
         setSum(sum + nextNum);
-        //setter함수로 새 값이 추가된 gameHistory State를 전달해줍니다.
-        setGameHistory([...gameHistory, nextNum]);
     }
     // 주사위 초기화 버튼 클릭 이벤트를 처리하는 함수를 정의합니다.
     const handleClearClick = () => {
         // 주사위 상태 변수를 초기값으로 리셋합니다.
         setNum(1);
         setSum(0);
-        setGameHistory([]);
     }
 
     return (
@@ -79,12 +75,7 @@ function App() {
                     <Button onClick={handleClearClick}>처음부터</Button>
                 </div>
                 <div>
-                    <h3>나</h3>
-                    <Dice color="blue" num={num} />
-                    <h3>총점</h3>
-                    <p>{sum}</p>
-                    <h3>기록</h3>
-                    <p>{gameHistory.join(', ')}</p>
+                    <Dice color="red" num={num} />
                 </div>
             </div>
 
