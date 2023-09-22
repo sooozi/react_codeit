@@ -7,6 +7,8 @@ import Dice from './Dice'; // 주사위를 표시하는 컴포넌트
 import { compareHand, generateRandomHand } from './utils'; // 게임 로직을 위한 유틸리티 함수들을 가져옵니다.
 
 
+
+
 // 사용자의 손 모양 초기값을 정의합니다.
 const INITIAL_VALUE = 'rock';
 
