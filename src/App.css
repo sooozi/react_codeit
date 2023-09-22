@@ -1,0 +1,21 @@
+.App {
+    text-align: center;
+    margin-top: 5rem;
+}
+.App .App-button {
+    margin: 6px;
+}
+.dice_wrap {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.dice_box {
+    flex: 1;
+    max-width: 20rem;
+    text-align: center;
+    background-color: #20273b;
+    border-radius: 20px;
+    padding: 2rem 0;
+}
