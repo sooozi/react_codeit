@@ -1,5 +1,5 @@
 import HandIcon from './HandIcon';
-// import Dice from './Dice';
+import Dice from './Dice';
 
 function App() {
   return (
