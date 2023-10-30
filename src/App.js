@@ -7,7 +7,6 @@ function random(n) {
     return Math.ceil(Math.random() * n);
 }
 
-
 function App() {
     const [myHistory, setMyHistory] = useState([]); 
     const [otherHistory, setOtherHistory] = useState([]); 
