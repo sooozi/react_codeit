@@ -6,4 +6,12 @@ const promise = new Promise ((resolve, reject) => {
     } else {
         reject('실패');
     }
-})
+});
+
+promise
+    .then(result => {
+        console.log(result);
+    })
+    .catch(error => {
+        console.error(error)
+    })
